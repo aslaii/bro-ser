@@ -8,6 +8,7 @@ import { useNavigationHistory } from "~/lib/navigation-history";
 import { useLocalSearchParams } from "expo-router";
 import { formatUrl } from "~/lib/url-utils";
 
+// eslint-disable-next-line react/function-component-definition
 export default function Index() {
   const [ url, setUrl ] = useState("");
   const [ currentUrl, setCurrentUrl ] = useState("");

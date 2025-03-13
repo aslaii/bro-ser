@@ -8,10 +8,10 @@ import { router } from "expo-router";
 import { ArrowLeft, Trash2 } from "lucide-react-native";
 import { iconWithClassName } from "~/lib/icons/iconWithClassName";
 
-// Apply className support to icons
 iconWithClassName(ArrowLeft);
 iconWithClassName(Trash2);
 
+// eslint-disable-next-line react/function-component-definition
 export default function HistoryPage() {
   const { getHistory, clearHistory } = useNavigationHistory();
   const history = getHistory();
