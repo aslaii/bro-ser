@@ -1,10 +1,10 @@
-# WebViewerApp - A Simple Web Browser for React Native
+# Bro-ser - A Simple Web Browser for React Native
 
 ![WebViewerApp UI](image.png)
 
 ## Overview
 
-WebViewerApp is a lightweight web browser built with React Native and Expo. It provides a simple interface for browsing the web on both mobile devices and web platforms.
+Bro-ser is a lightweight web browser built with React Native and Expo. It provides a simple interface for browsing the web on both mobile devices and web platforms.
 
 ## Features
 
