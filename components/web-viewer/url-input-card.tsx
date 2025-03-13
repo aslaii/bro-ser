@@ -1,13 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import { Text } from "~/components/ui/text";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "~/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "~/components/ui/card";
 import { NavigationControls } from "./navigation-controls";
-import { History } from "lucide-react-native";
+import {  HandMetal, History } from "lucide-react-native";
 import { iconWithClassName } from "~/lib/icons/iconWithClassName";
 import { router } from "expo-router";
 
 iconWithClassName(History);
+iconWithClassName(HandMetal);
 
 interface UrlInputCardProps {
   url: string;
@@ -17,11 +18,12 @@ interface UrlInputCardProps {
   onGoBack: () => void;
   onGoForward: () => void;
   onRefresh: () => void;
+  onClearUrl: () => void;
   canGoBack: boolean;
   canGoForward: boolean;
 }
 
-export function UrlInputCard({ 
+export const UrlInputCard = ({ 
   url, 
   displayUrl, 
   onUrlChange, 
@@ -29,16 +31,17 @@ export function UrlInputCard({
   onGoBack,
   onGoForward,
   onRefresh,
+  onClearUrl,
   canGoBack,
   canGoForward
-}: UrlInputCardProps) {
+}: UrlInputCardProps) => {
   const inputRef = useRef<TextInput>(null);
   
   useEffect(() => {
     if (displayUrl !== url) {
       onUrlChange(displayUrl);
     }
-  }, [displayUrl]);
+  }, [ displayUrl ]);
 
   const navigateToHistory = () => {
     router.navigate("/history");
@@ -48,7 +51,13 @@ export function UrlInputCard({
     <Card className="mb-4">
       <CardHeader>
         <View className="flex-row justify-between items-center">
-          <CardTitle>Web Viewer</CardTitle>
+          <TouchableOpacity 
+            onPress={onClearUrl}
+            className="flex-row items-center space-x-2"
+          >
+            <HandMetal size={20} className="text-primary mr-2" />
+            <CardTitle>Bro-ser</CardTitle>
+          </TouchableOpacity>
           <View className="flex-row items-center">
             <NavigationControls 
               onGoBack={onGoBack}
@@ -65,7 +74,6 @@ export function UrlInputCard({
             </TouchableOpacity>
           </View>
         </View>
-        <CardDescription>Enter a URL to view a website</CardDescription>
       </CardHeader>
       <CardContent>
         <View className="flex-row space-x-2">
@@ -91,4 +99,4 @@ export function UrlInputCard({
       </CardContent>
     </Card>
   );
-}
+};

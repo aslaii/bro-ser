@@ -23,7 +23,7 @@ export const useNavigationHistory = create<NavigationHistoryState>((set, get) =>
     // If we're not at the end of the history, remove all entries after current index
     const newHistory = currentIndex < history.length - 1 
       ? history.slice(0, currentIndex + 1) 
-      : [...history];
+      : [ ...history ];
     
     // Only add URL if it's different from the current one
     if (currentIndex === -1 || url !== newHistory[currentIndex]) {

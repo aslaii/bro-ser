@@ -3,8 +3,32 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@config/*": [
+        "./src/app/config/*"
+      ],
+      "@components/*": [
+        "./src/app/components/*"
+      ],
+      "@reducers/*": [
+        "./src/app/reducers/*"
+      ],
+      "@services/*": [
+        "./src/app/services/*"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ],
+      "@locale/*": [
+        "./src/locale/*"
+      ],
       "~/*": [
-        "*"
+        "./*"
       ]
     }
   },

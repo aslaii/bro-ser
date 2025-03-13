@@ -12,8 +12,8 @@ interface HistoryDropdownProps {
   onSelectUrl: (url: string) => void;
 }
 
-export function HistoryDropdown({ onSelectUrl }: HistoryDropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export const HistoryDropdown = ({ onSelectUrl }: HistoryDropdownProps) => {
+  const [ isOpen, setIsOpen ] = useState(false);
   const { getHistory } = useNavigationHistory();
   
   const history = getHistory();
@@ -69,4 +69,4 @@ export function HistoryDropdown({ onSelectUrl }: HistoryDropdownProps) {
       </Modal>
     </>
   );
-}
+};

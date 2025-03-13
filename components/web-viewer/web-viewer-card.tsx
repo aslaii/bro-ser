@@ -15,7 +15,7 @@ interface WebViewerCardProps {
   webViewRef: React.RefObject<WebView>;
 }
 
-export function WebViewerCard({
+export const WebViewerCard = ({
   url,
   loading,
   progress,
@@ -24,7 +24,7 @@ export function WebViewerCard({
   onLoadProgress,
   onNavigationStateChange,
   webViewRef,
-}: WebViewerCardProps) {
+}: WebViewerCardProps) => {
   return (
     <>
       {loading && (
@@ -69,4 +69,4 @@ export function WebViewerCard({
       </Card>
     </>
   );
-}
+};

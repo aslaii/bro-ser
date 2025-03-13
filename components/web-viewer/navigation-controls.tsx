@@ -15,13 +15,13 @@ interface NavigationControlsProps {
   canGoForward?: boolean;
 }
 
-export function NavigationControls({
+export const NavigationControls = ({
   onGoBack,
   onGoForward,
   onRefresh,
   canGoBack = false,
   canGoForward = false,
-}: NavigationControlsProps) {
+}: NavigationControlsProps) => {
   return (
     <View className="flex-row space-x-4 items-center">
       <TouchableOpacity 
@@ -54,4 +54,4 @@ export function NavigationControls({
       </TouchableOpacity>
     </View>
   );
-}
+};

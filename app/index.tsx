@@ -9,11 +9,11 @@ import { useLocalSearchParams } from "expo-router";
 import { formatUrl } from "~/lib/url-utils";
 
 export default function Index() {
-  const [url, setUrl] = useState("");
-  const [currentUrl, setCurrentUrl] = useState("");
-  const [displayUrl, setDisplayUrl] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [ url, setUrl ] = useState("");
+  const [ currentUrl, setCurrentUrl ] = useState("");
+  const [ displayUrl, setDisplayUrl ] = useState("");
+  const [ loading, setLoading ] = useState(false);
+  const [ progress, setProgress ] = useState(0);
   
   const webViewRef = useRef<WebView>(null);
   const { url: urlParam } = useLocalSearchParams<{ url?: string }>();
@@ -32,7 +32,7 @@ export default function Index() {
       setCurrentUrl(urlParam);
       setDisplayUrl(urlParam);
     }
-  }, [urlParam]);
+  }, [ urlParam ]);
   
   const handleSubmit = () => {
     if (!url.trim()) return;
@@ -52,9 +52,11 @@ export default function Index() {
   
   const handleGoBack = () => {
     const prevUrl = goBack();
-    if (prevUrl && webViewRef.current) {
+    if (prevUrl) {
       setCurrentUrl(prevUrl);
       setDisplayUrl(prevUrl);
+    } else {
+      handleClearUrl();
     }
   };
   
@@ -72,6 +74,12 @@ export default function Index() {
     }
   };
 
+  const handleClearUrl = () => {
+    setUrl("");
+    setCurrentUrl("");
+    setDisplayUrl("");
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-background">
       <StatusBar style="auto" />
@@ -84,6 +92,7 @@ export default function Index() {
           onGoBack={handleGoBack}
           onGoForward={handleGoForward}
           onRefresh={handleRefresh}
+          onClearUrl={handleClearUrl}
           canGoBack={canGoBack()}
           canGoForward={canGoForward()}
         />
