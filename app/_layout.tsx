@@ -35,7 +35,6 @@ import '~/global.css';
       }
 
       if (Platform.OS === 'web') {
-        // Adds the background color to the html element to prevent white background on overscroll.
         document.documentElement.classList.add('bg-background');
       }
       setIsColorSchemeLoaded(true);
@@ -49,7 +48,8 @@ import '~/global.css';
     return (
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
         <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-        <Stack />
+        <Stack screenOptions={{ headerShown: false }}
+        />
       </ThemeProvider>
     );
   }
