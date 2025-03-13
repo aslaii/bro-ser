@@ -1,50 +1,108 @@
-# Welcome to your Expo app 👋
+# WebViewerApp - A Simple Web Browser for React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![WebViewerApp UI](image.png)
 
-## Get started
+## Overview
 
-1. Install dependencies
+WebViewerApp is a lightweight web browser built with React Native and Expo. It provides a simple interface for browsing the web on both mobile devices and web platforms.
+
+## Features
+
+- Clean, minimalist UI with dark mode support
+- URL input with validation
+- Navigation controls (back, forward, refresh)
+- Browsing history tracking
+- Progress indicator for page loading
+- Cross-platform support (iOS, Android, Web)
+
+## Demo
+
+Try the web version: [https://d32di3wh78k9b8.cloudfront.net/](https://d32di3wh78k9b8.cloudfront.net/)
+
+## Technology Stack
+
+- React Native
+- Expo
+- TypeScript
+- NativeWind (TailwindCSS for React Native)
+- Zustand (State Management)
+- React Native WebView
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or newer)
+- npm or pnpm
+- Expo CLI
+
+### Installation
+
+1. Clone the repository
 
    ```bash
-   npm install
+   git clone https://github.com/yourusername/webviewerapp.git
+   cd webviewerapp
    ```
 
-2. Start the app
+2. Install dependencies
 
    ```bash
-    npx expo start
+   pnpm install
    ```
 
-In the output, you'll find options to open the app in a
+3. Start the development server
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   pnpm start
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   This will open the Expo developer tools where you can run the app on:
 
-## Get a fresh project
+   - iOS Simulator
+   - Android Emulator
+   - Web Browser
+   - Physical device using Expo Go
 
-When you're ready, run:
+## Project Structure
 
-```bash
-npm run reset-project
+```
+WebViewerApp/
+├── app/                  # Main application screens
+│   ├── _layout.tsx       # Root layout component
+│   ├── history.tsx       # Browsing history screen
+│   └── index.tsx         # Main browser screen
+├── assets/               # Static assets
+├── components/           # Reusable components
+│   ├── ui/               # UI components
+│   └── web-viewer/       # Web viewer specific components
+├── lib/                  # Utilities and helpers
+│   ├── icons/            # Icon components
+│   ├── navigation-history.ts  # History state management
+│   └── url-utils.ts      # URL handling utilities
+└── ...                   # Configuration files
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Usage
 
-## Learn more
+1. Enter a URL in the address bar and press "Go" or hit Enter
+2. Use the navigation controls to go back, forward, or refresh the page
+3. Click the history icon to view your browsing history
 
-To learn more about developing your project with Expo, look at the following resources:
+## Platform-Specific Notes
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **Mobile (iOS/Android)**: Full functionality with WebView support
+- **Web**: Some websites may not display due to X-Frame-Options restrictions. In these cases, an "Open in New Tab" option is provided.
 
-## Join the community
+## Contributing
 
-Join our community of developers creating universal apps.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built with Expo and React Native
+- UI components inspired by shadcn/ui
