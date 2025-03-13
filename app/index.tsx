@@ -6,6 +6,7 @@ import { UrlInputCard } from "~/components/web-viewer/url-input-card";
 import { WebViewerCard } from "~/components/web-viewer/web-viewer-card";
 import { useNavigationHistory } from "~/lib/navigation-history";
 import { useLocalSearchParams } from "expo-router";
+import { formatUrl } from "~/lib/url-utils";
 
 export default function Index() {
   const [url, setUrl] = useState("");
@@ -34,10 +35,10 @@ export default function Index() {
   }, [urlParam]);
   
   const handleSubmit = () => {
-    let formattedUrl = url;
-    if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
-      formattedUrl = `https://${url}`;
-    }
+    if (!url.trim()) return;
+    
+    const formattedUrl = formatUrl(url.trim());
+    
     setCurrentUrl(formattedUrl);
     setDisplayUrl(formattedUrl);
   };
